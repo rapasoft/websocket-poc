@@ -21,7 +21,7 @@ open class WebSocketConfiguration : AbstractWebSocketMessageBrokerConfigurer() {
     }
 
     override fun registerStompEndpoints(stompEndpointRegistry: StompEndpointRegistry) {
-        stompEndpointRegistry.addEndpoint("/websocket")
+        stompEndpointRegistry.addEndpoint("/websocket").setAllowedOrigins("*").withSockJS()
     }
 }
 
