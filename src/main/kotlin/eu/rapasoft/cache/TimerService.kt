@@ -19,7 +19,7 @@ open class TimerService(@Autowired val simpleMessagingTemplate: SimpMessagingTem
                 timer.counter--
                 val message = "Timer $name - remaining ${timer.counter} seconds"
                 println(message)
-                simpleMessagingTemplate.convertAndSend("/topic/timers", message)
+                simpleMessagingTemplate.convertAndSend("/topic/timers", timer.getCurrentState())
             } else {
                 this.cancel()
             }
